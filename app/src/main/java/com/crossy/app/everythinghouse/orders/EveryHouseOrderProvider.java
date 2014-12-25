@@ -21,7 +21,9 @@ public class EveryHouseOrderProvider {
         if(orderObjects==null){
             return new Result(false,"list传递了空指针");
         }
-
-        return new Result(false,"meiyou");
+        orderObjects.add(new EveryHouseOrderObject());
+        orderObjects.add(new EveryHouseOrderObject());
+        orderObjects.add(new EveryHouseOrderObject());
+        return new Result(true,"meiyou");
     }
 }

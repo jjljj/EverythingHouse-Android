@@ -2,26 +2,114 @@
 <com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/swipeLayoutOrder"
     android:layout_width="match_parent"
-    android:layout_height="80dp">
+    android:layout_height="wrap_content">
     <!-- Bottom View Start-->
     <LinearLayout
-        android:background="#66ddff00"
         android:id="@+id/bottom_wrapper"
         android:layout_width="160dp"
         android:weightSum="1"
         android:layout_height="match_parent"
         android:orientation="horizontal">
         <!--What you want to show-->
+        <TextView
+            android:id="@+id/textViewTrade"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:background="#66ddff00"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:text="交易"/>
+        <TextView
+            android:id="@+id/textViewContact"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:background="@color/everything_house_2"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:text="私信"/>
     </LinearLayout>
     <!-- Bottom View End-->
 
     <!-- Surface View Start -->
     <LinearLayout
         android:padding="10dp"
-        android:background="#ffffff"
+        android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
         <!--What you want to show in SurfaceView-->
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/textViewCreator"
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:textSize="20sp"
+                android:text="投条人：XXX"/>
+
+            <TextView
+                android:id="@+id/textViewState"
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:textColor="@color/everything_house"
+                android:text="状态：XXXX"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="3dp">
+
+            <IconTextView
+                android:id="@+id/textViewTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:textColor="@color/everything_house_gray"
+                android:textSize="14sp"
+                android:text="{fa-calendar}时间：0000-00-00 00:00:00"/>
+            <IconTextView
+                android:id="@+id/textViewLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:textColor="@color/everything_house_gray"
+                android:textSize="14sp"
+                android:text="{fa-map-marker} 地点：XXX"/>
+            <IconTextView
+                android:id="@+id/textViewMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:textColor="@color/everything_house_gray"
+                android:textSize="14sp"
+                android:text="{fa-angellist}赏金：XX"/>
+
+            <IconTextView
+                android:id="@+id/textViewContent"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:textSize="14sp"
+                android:textColor="@color/everything_house_gray_dark"
+                android:text="{fa-paperclip}内容：这里是内容这里是内容这里是内容这里是内容这里是内容
+            这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容"/>
+        </LinearLayout>
+
+
     </LinearLayout>
     <!-- Surface View End -->
 </com.daimajia.swipe.SwipeLayout>

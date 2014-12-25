@@ -1,12 +1,81 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.crossy.app.everythinghouse.acts.EveryHouseActsActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView android:text="活动" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:id="@+id/layoutAct1"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        android:padding="10dp"
+        android:layout_marginTop="1dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        
+        <IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/everything_house"
+            android:textSize="20sp"
+            android:text="{fa-sign-in} 每日签到"/>
+        <IconTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:textColor="@color/everything_house"
+            android:textSize="20sp"
+            android:text="{fa-angle-right}"/>
+    </LinearLayout>
 
-</RelativeLayout>
+    <LinearLayout
+        android:id="@+id/layoutAct2"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        android:padding="10dp"
+        android:layout_marginTop="1dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/everything_house"
+            android:textSize="20sp"
+            android:text="{fa-asterisk} 菠菜区"/>
+        <IconTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:textColor="@color/everything_house"
+            android:textSize="20sp"
+            android:text="{fa-angle-right}"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutAct3"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        android:padding="10dp"
+        android:layout_marginTop="1dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/everything_house"
+            android:textSize="20sp"
+            android:text="{fa-lightbulb-o}  道具商场"/>
+        <IconTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:textColor="@color/everything_house"
+            android:textSize="20sp"
+            android:text="{fa-angle-right}"/>
+    </LinearLayout>
+
+</LinearLayout>
