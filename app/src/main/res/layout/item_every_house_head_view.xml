@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="bottom"
+    android:gravity="bottom">
+
+    <ImageView
+        android:id="@+id/iv_user_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/ic_launcher"
+        android:contentDescription="@string/app_name" />
+
+    <TextView
+        android:id="@+id/tv_user_name"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_below="@id/iv_user_head"
+        android:layout_centerHorizontal="true"
+        android:text=""
+        android:textColor="#ffffff" />
+
+    <LinearLayout
+        android:id="@+id/ll_action_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#66000000"
+        android:divider="@color/white"
+        android:showDividers="middle"
+        android:dividerPadding="16dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <IconTextView
+            android:id="@+id/textViewMessage"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:text="{fa-envelope-o}通知"
+            android:textSize="20sp"
+            android:textColor="@color/white" />
+        <IconTextView
+            android:id="@+id/textViewSetting"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:text="{fa-cog}设置"
+            android:textSize="20sp"
+            android:textColor="@color/white" />
+        <IconTextView
+            android:id="@+id/textViewAccount"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:text="{fa-user}账号"
+            android:textSize="20sp"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</RelativeLayout>

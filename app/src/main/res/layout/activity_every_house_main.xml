@@ -1,0 +1,15 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    tools:context="com.crossy.app.everythinghouse.main.EveryHouseMainActivity">
+
+    <com.crossy.app.everythinghouse.utils.pulltozoomview.PullToZoomScrollViewEx
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        custom:zoomView="@layout/item_every_house_zoom_view"
+        custom:contentView="@layout/item_every_house_content_view"
+        custom:headerView="@layout/item_every_house_head_view"/>
+
+</RelativeLayout>

@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+apply plugin: 'maven'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.14.1'
+        classpath 'com.github.dcendents:android-maven-plugin:1.0'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.1"
+
+    defaultConfig {
+        applicationId "com.every.app.everythinghouse"
+        minSdkVersion 14
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.beardedhen:androidbootstrap:+'
+    compile 'com.joanzapata.android:android-iconify:1.0.8'
+    compile 'com.daimajia.swipelayout:library:1.1.7@aar'
+    compile 'in.srain.cube:ultra-ptr:1.0.5@aar'
+    compile 'com.android.support:appcompat-v7:21.0.0'
+    compile 'com.google.code.gson:gson:2.2.4'
+}

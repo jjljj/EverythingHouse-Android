@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">EverythingHouse</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_tab_host">TabHostActivity</string>
+    <string name="title_activity_every_house_acts">EveryHouseActsActivity</string>
+    <string name="title_activity_every_house_main">EveryHouseMainActivity</string>
+    <string name="title_activity_every_house_order">EveryHouseOrderActivity</string>
+    <string name="title_activity_every_house_login">EveryHouseLoginActivity</string>
+    <string name="title_activity_every_house_order_send">EveryHouseOrderSendActivity</string>
+
+</resources>
