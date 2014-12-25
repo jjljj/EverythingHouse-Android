@@ -24,11 +24,11 @@
                 android:text="{fa-calendar}时间"/>
 
             <Button
+                android:id="@+id/buttonPickTime"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/everything_house"
-                android:textColor="@color/white"
-                android:text="0000-00-00 00:00:00(点击修改)"/>
+                android:textColor="@color/white"/>
         </LinearLayout>
 
         <LinearLayout
