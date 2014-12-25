@@ -33,7 +33,7 @@
             android:label="@string/title_activity_every_house_order" >
         </activity>
         <activity
-            android:name=".utils.login.EveryHouseLoginActivity"
+            android:name=".utils.user.EveryHouseLoginActivity"
             android:label="@string/title_activity_every_house_login" >
         </activity>
         <activity
