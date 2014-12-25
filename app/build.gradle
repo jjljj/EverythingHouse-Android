@@ -36,4 +36,5 @@ dependencies {
     compile 'in.srain.cube:ultra-ptr:1.0.5@aar'
     compile 'com.android.support:appcompat-v7:21.0.0'
     compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.android.support:support-v4:21.0.0'
 }

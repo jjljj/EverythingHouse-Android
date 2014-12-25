@@ -10,5 +10,7 @@
     <string name="title_activity_every_house_order">EveryHouseOrderActivity</string>
     <string name="title_activity_every_house_login">EveryHouseLoginActivity</string>
     <string name="title_activity_every_house_order_send">EveryHouseOrderSendActivity</string>
+    <string name="title_activity_every_house_message_list">EveryHouseMessageListActivity</string>
+    <string name="title_activity_every_house_user">EveryHouseUserActivity</string>
 
 </resources>

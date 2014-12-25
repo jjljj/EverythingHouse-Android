@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.crossy.app.everythinghouse.utils.launch.LaunchActivity"
+            android:name=".utils.launch.LaunchActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,28 +17,40 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.crossy.app.everythinghouse.utils.launch.TabHostActivity"
+            android:name=".utils.launch.TabHostActivity"
             android:label="@string/title_activity_tab_host" >
         </activity>
         <activity
-            android:name="com.crossy.app.everythinghouse.acts.EveryHouseActsActivity"
+            android:name=".acts.EveryHouseActsActivity"
             android:label="@string/title_activity_every_house_acts" >
         </activity>
         <activity
-            android:name="com.crossy.app.everythinghouse.main.EveryHouseMainActivity"
+            android:name=".main.EveryHouseMainActivity"
             android:label="@string/title_activity_every_house_main" >
         </activity>
         <activity
-            android:name="com.crossy.app.everythinghouse.orders.EveryHouseOrderActivity"
+            android:name=".orders.EveryHouseOrderActivity"
             android:label="@string/title_activity_every_house_order" >
         </activity>
         <activity
-            android:name="com.crossy.app.everythinghouse.utils.login.EveryHouseLoginActivity"
+            android:name=".utils.login.EveryHouseLoginActivity"
             android:label="@string/title_activity_every_house_login" >
         </activity>
         <activity
-            android:name="com.crossy.app.everythinghouse.orders.send.EveryHouseOrderSendActivity"
+            android:name=".orders.send.EveryHouseOrderSendActivity"
             android:label="@string/title_activity_every_house_order_send" >
+        </activity>
+        <activity
+            android:name=".utils.settings.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name=".utils.message.EveryHouseMessageListActivity"
+            android:label="@string/title_activity_every_house_message_list" >
+        </activity>
+        <activity
+            android:name=".utils.user.EveryHouseUserActivity"
+            android:label="@string/title_activity_every_house_user" >
         </activity>
     </application>
 
