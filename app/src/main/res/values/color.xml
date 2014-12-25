@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="app_color">#FF5BC0DE</color>
-    <color name="app_color_2">#965bc0de</color>
-    <color name="app_color_3">#505bc0de</color>
-    <color name="app_color_gray">#FF828282</color>
+    <color name="everything_house">#FF5BC0DE</color>
+    <color name="everything_house_2">#965bc0de</color>
+    <color name="everything_house_3">#505bc0de</color>
+    <color name="everything_house_gray">#FF828282</color>
+    <color name="everything_house_gray_dark">#FF828282</color>
 </resources>

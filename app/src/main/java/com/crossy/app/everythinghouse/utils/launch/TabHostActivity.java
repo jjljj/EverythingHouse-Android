@@ -101,7 +101,7 @@ public class TabHostActivity extends TabActivity {
         }
 
         imageView[currentTab].setImageResource(drawablesSelected[currentTab]);
-        textView[currentTab].setTextColor(getResources().getColor(R.color.app_color));
+        textView[currentTab].setTextColor(getResources().getColor(R.color.everything_house));
 
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
@@ -112,7 +112,7 @@ public class TabHostActivity extends TabActivity {
                         continue;
                     }
                     imageView[i].setImageResource(drawablesSelected[i]);
-                    textView[i].setTextColor(getResources().getColor(R.color.app_color));
+                    textView[i].setTextColor(getResources().getColor(R.color.everything_house));
                 }
             }
         });
@@ -121,7 +121,7 @@ public class TabHostActivity extends TabActivity {
     private void initUnselected(){
         for(int i=0;i<TAB_SPEC_NUM;++i){
             imageView[i].setImageResource(drawablesUnselected[i]);
-            textView[i].setTextColor(getResources().getColor(R.color.app_color_gray));
+            textView[i].setTextColor(getResources().getColor(R.color.everything_house_gray));
         }
     }
 }

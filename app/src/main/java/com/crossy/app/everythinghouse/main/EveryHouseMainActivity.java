@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 
 import com.crossy.app.everythinghouse.R;
 import com.crossy.app.everythinghouse.orders.send.EveryHouseOrderSendActivity;
+import com.crossy.app.everythinghouse.utils.StickyScrollView;
 import com.crossy.app.everythinghouse.utils.ViewUtil;
 import com.crossy.app.everythinghouse.utils.launch.TabHostActivity;
 import com.crossy.app.everythinghouse.utils.pulltozoomview.PullToZoomScrollViewEx;
@@ -24,6 +25,7 @@ public class EveryHouseMainActivity extends Activity {
     private final int REQUEST_CODE_SEND_ORDER = 1000;
 
     private PullToZoomScrollViewEx scrollViewEx;
+    private StickyScrollView stickyScrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,12 +54,6 @@ public class EveryHouseMainActivity extends Activity {
 
     private void initView(){
         scrollViewEx = (PullToZoomScrollViewEx)findViewById(R.id.scroll_view);
-        scrollViewEx.getRootView().findViewById(R.id.tv_test1).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.e(TAG, "onClick -->");
-            }
-        });
         DisplayMetrics localDisplayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(localDisplayMetrics);
         int mScreenHeight = localDisplayMetrics.heightPixels;
@@ -65,6 +61,7 @@ public class EveryHouseMainActivity extends Activity {
         LinearLayout.LayoutParams localObject = new LinearLayout.LayoutParams(mScreenWidth, (int) (9.0F * (mScreenWidth / 16.0F)));
         scrollViewEx.setHeaderLayoutParams(localObject);
 
+        stickyScrollView = (StickyScrollView)scrollViewEx.getRootView().findViewById(R.id.stickyScrollView);
     }
 
     private void initActionBar(){
