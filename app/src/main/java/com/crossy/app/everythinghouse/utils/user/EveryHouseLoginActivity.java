@@ -14,6 +14,7 @@ import com.crossy.app.everythinghouse.R;
 import com.crossy.app.everythinghouse.utils.DataUtil;
 import com.crossy.app.everythinghouse.utils.HttpUtil;
 import com.crossy.app.everythinghouse.utils.ViewUtil;
+import com.crossy.app.everythinghouse.utils.api.API_EVERYTHING_HOUSE;
 import com.crossy.app.everythinghouse.utils.api.API_SPF;
 
 import org.apache.http.NameValuePair;
@@ -27,7 +28,7 @@ import java.util.List;
 
 public class EveryHouseLoginActivity extends Activity {
 
-    private final String loginPostUrl = "http://59.78.46.141/login";
+    private final String loginPostUrl = DataUtil.getString(API_EVERYTHING_HOUSE.SPF_NAME,API_EVERYTHING_HOUSE.SPF_KEY_WEB_HOST,"")+"/login";
 
     private BootstrapEditText editTextUsername;
     private BootstrapEditText editTextPassword;

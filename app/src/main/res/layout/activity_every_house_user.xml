@@ -1,7 +1,8 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation = "vertical">
 
     <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/buttonGoLogin"
@@ -12,4 +13,19 @@
         bootstrapbutton:bb_type="warning"
         android:text="去登陆"/>
 
-</RelativeLayout>
+    <com.beardedhen.androidbootstrap.BootstrapEditText
+        android:id="@+id/editTextWebHost"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="http://59.78.46.141"/>
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/buttonSaveWebHost"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        bootstrapbutton:bb_roundedCorners="true"
+        bootstrapbutton:bb_type="warning"
+        android:text="保存服务器IP地址"/>
+
+</LinearLayout>

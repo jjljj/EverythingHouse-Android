@@ -22,10 +22,12 @@ import android.widget.Toast;
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.beardedhen.androidbootstrap.BootstrapEditText;
 import com.crossy.app.everythinghouse.R;
+import com.crossy.app.everythinghouse.utils.DataUtil;
 import com.crossy.app.everythinghouse.utils.HttpUtil;
 import com.crossy.app.everythinghouse.utils.Result;
 import com.crossy.app.everythinghouse.utils.TimeConvertUtil;
 import com.crossy.app.everythinghouse.utils.ViewUtil;
+import com.crossy.app.everythinghouse.utils.api.API_EVERYTHING_HOUSE;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -36,7 +38,7 @@ import java.util.List;
 
 public class EveryHouseOrderSendActivity extends Activity {
 
-    private final String postOrderUrl = "http://59.78.46.141/post";
+    private final String postOrderUrl = DataUtil.getString(API_EVERYTHING_HOUSE.SPF_NAME, API_EVERYTHING_HOUSE.SPF_KEY_WEB_HOST, "")+"/post";
 
     private Button buttonPickTime;
     private BootstrapEditText editTextLocation;

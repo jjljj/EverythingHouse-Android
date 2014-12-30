@@ -9,9 +9,11 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
+import com.beardedhen.androidbootstrap.BootstrapEditText;
 import com.crossy.app.everythinghouse.R;
 import com.crossy.app.everythinghouse.utils.DataUtil;
 import com.crossy.app.everythinghouse.utils.ViewUtil;
+import com.crossy.app.everythinghouse.utils.api.API_EVERYTHING_HOUSE;
 import com.crossy.app.everythinghouse.utils.api.API_SPF;
 
 public class EveryHouseUserActivity extends Activity {
@@ -19,6 +21,8 @@ public class EveryHouseUserActivity extends Activity {
     private final int REQUEST_CODE_LOGIN = 1000;
 
     private BootstrapButton buttonGoLogin;
+    private BootstrapEditText editTextWebHost;
+    private BootstrapButton buttonWebHost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +56,11 @@ public class EveryHouseUserActivity extends Activity {
         if(!DataUtil.getString(API_SPF.NAME_USER,API_SPF.USER_SESSION_EVERY_HOUSE,"").equals("")){
             buttonGoLogin.setText("已登录");
         }
+        editTextWebHost = (BootstrapEditText)findViewById(R.id.editTextWebHost);
+        buttonWebHost = (BootstrapButton)findViewById(R.id.buttonSaveWebHost);
+        if(!DataUtil.getString(API_EVERYTHING_HOUSE.SPF_NAME,API_EVERYTHING_HOUSE.SPF_KEY_WEB_HOST,"").equals("")){
+            editTextWebHost.setText(DataUtil.getString(API_EVERYTHING_HOUSE.SPF_NAME,API_EVERYTHING_HOUSE.SPF_KEY_WEB_HOST,""));
+        }
     }
 
     private void registerListener(){
@@ -59,6 +68,12 @@ public class EveryHouseUserActivity extends Activity {
             @Override
             public void onClick(View view) {
                 startActivityForResult(new Intent(EveryHouseUserActivity.this, EveryHouseLoginActivity.class), REQUEST_CODE_LOGIN);
+            }
+        });
+        buttonWebHost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DataUtil.putString(API_EVERYTHING_HOUSE.SPF_NAME,API_EVERYTHING_HOUSE.SPF_KEY_WEB_HOST,editTextWebHost.getText().toString());
             }
         });
     }

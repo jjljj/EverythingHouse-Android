@@ -1,14 +1,20 @@
 package com.crossy.app.everythinghouse.orders;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.IconTextView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.crossy.app.everythinghouse.R;
+import com.crossy.app.everythinghouse.utils.DataUtil;
+import com.crossy.app.everythinghouse.utils.HttpUtil;
+import com.crossy.app.everythinghouse.utils.Result;
+import com.crossy.app.everythinghouse.utils.api.API_EVERYTHING_HOUSE;
 import com.daimajia.swipe.SwipeLayout;
 
 import org.w3c.dom.Text;
@@ -20,6 +26,8 @@ import java.util.List;
  * Created by ljj on 2014/12/25.
  */
 public class EveryHouseOrderListAdapter extends ArrayAdapter<EveryHouseOrderObject> {
+
+    private final String dealUrl = DataUtil.getString(API_EVERYTHING_HOUSE.SPF_NAME, API_EVERYTHING_HOUSE.SPF_KEY_WEB_HOST, "")+"/deal/";
 
     private Context context;
     private int resourceId;
@@ -55,13 +63,19 @@ public class EveryHouseOrderListAdapter extends ArrayAdapter<EveryHouseOrderObje
             holder = (ViewHolder) convertView.getTag();
         }
 
-        EveryHouseOrderObject temp = orderObjects.get(position);
-        holder.textViewCreator.setText("投条人："+"XXX");
-        holder.textViewState.setText("状态："+"XXXX");
-        holder.textViewTime.setText("{fa-calendar}时间："+"0000-00-00 00:00:00");
-        holder.textViewLocation.setText("{fa-map-marker} 地点："+"XXX");
-        holder.textViewMoney.setText("{fa-angellist}赏金："+"XX");
-        holder.textViewContent.setText("{fa-paperclip}内容："+"这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容");
+        final EveryHouseOrderObject temp = orderObjects.get(position);
+        holder.textViewCreator.setText("投条人："+temp.getUsername());
+        if(temp.getState().equals("0")){
+            holder.textViewState.setText("状态："+"未接单");
+        }else if(temp.getState().equals("1")){
+            holder.textViewState.setText("状态："+"处理中");
+        }else if(temp.getState().equals("2")){
+            holder.textViewState.setText("状态："+"已完成");
+        }
+        holder.textViewTime.setText("{fa-calendar}时间："+temp.getTime());
+        holder.textViewLocation.setText("{fa-map-marker} 地点："+temp.getPosition());
+        holder.textViewMoney.setText("{fa-angellist}赏金："+temp.getNicecard());
+        holder.textViewContent.setText("{fa-paperclip}内容："+temp.getContent());
 
         holder.swipeLayout.setShowMode(SwipeLayout.ShowMode.LayDown);//set show mode.
         holder.swipeLayout.setDragEdge(SwipeLayout.DragEdge.Right);//set drag edge.
@@ -99,7 +113,29 @@ public class EveryHouseOrderListAdapter extends ArrayAdapter<EveryHouseOrderObje
         holder.textViewTrade.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                new AsyncTask<Void,Void,Result>(){
+                    @Override
+                    protected void onPreExecute() {
+                        super.onPreExecute();
+                    }
 
+                    @Override
+                    protected Result doInBackground(Void... voids) {
+                        HttpUtil httpUtil = new HttpUtil();
+                        httpUtil.get(dealUrl+temp.getId(),true);
+                        if(httpUtil.getHttpResponse().getStatusLine().getStatusCode() == 200){
+                            return new Result(true,"接单成功");
+                        }else{
+                            return new Result(false,"接单失败");
+                        }
+                    }
+
+                    @Override
+                    protected void onPostExecute(Result result) {
+                        super.onPostExecute(result);
+                        Toast.makeText(context,result.getMessage(),Toast.LENGTH_SHORT).show();
+                    }
+                }.execute();
             }
         });
         holder.textViewContact.setOnClickListener(new View.OnClickListener() {
