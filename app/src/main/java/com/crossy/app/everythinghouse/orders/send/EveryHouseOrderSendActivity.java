@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -21,13 +22,21 @@ import android.widget.Toast;
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.beardedhen.androidbootstrap.BootstrapEditText;
 import com.crossy.app.everythinghouse.R;
+import com.crossy.app.everythinghouse.utils.HttpUtil;
 import com.crossy.app.everythinghouse.utils.Result;
 import com.crossy.app.everythinghouse.utils.TimeConvertUtil;
 import com.crossy.app.everythinghouse.utils.ViewUtil;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class EveryHouseOrderSendActivity extends Activity {
+
+    private final String postOrderUrl = "http://59.78.46.141/post";
 
     private Button buttonPickTime;
     private BootstrapEditText editTextLocation;
@@ -35,11 +44,12 @@ public class EveryHouseOrderSendActivity extends Activity {
     private BootstrapEditText editTextContent;
     private CheckBox checkBoxAnonymous;
 
+    private int[] times = new int[5];
     private String time="";
     private String location;
     private String money;
     private String content;
-    private boolean isAnonymous;
+    private boolean isAnonymous = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +75,6 @@ public class EveryHouseOrderSendActivity extends Activity {
 
     private void registerListener(){
         buttonPickTime.setOnClickListener(new View.OnClickListener() {
-            private int[] times = new int[5];
             final Calendar c = Calendar.getInstance();
             @Override
             public void onClick(View view) {
@@ -104,6 +113,13 @@ public class EveryHouseOrderSendActivity extends Activity {
                 datePickerDialog.setTitle("设置日期");
                 datePickerDialog.setButton(DatePickerDialog.BUTTON_POSITIVE,"下一步",datePickerDialog);
                 datePickerDialog.show();
+            }
+        });
+
+        checkBoxAnonymous.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                isAnonymous = b;
             }
         });
     }
@@ -145,16 +161,26 @@ public class EveryHouseOrderSendActivity extends Activity {
 
             @Override
             protected Result doInBackground(Void... voids) {
-                return new Result(true,"test ok");
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+                nameValuePairs.add(new BasicNameValuePair("position",editTextLocation.getText().toString()));
+                nameValuePairs.add(new BasicNameValuePair("time",times[0]+"年"+times[1]+"月"+times[2]+"日"+times[3]+"时"+times[4]+"分"));
+                nameValuePairs.add(new BasicNameValuePair("content",editTextContent.getText().toString()));
+                nameValuePairs.add(new BasicNameValuePair("money",editTextMoney.getText().toString()));
+                nameValuePairs.add(new BasicNameValuePair("is_anonymity",isAnonymous+""));
+                HttpUtil httpUtil = new HttpUtil();
+                httpUtil.post(postOrderUrl,nameValuePairs,true);
+                if(httpUtil.getHttpResponse().getStatusLine().getStatusCode() == 200){
+                    return new Result(true,"提交成功");
+                }
+                return new Result(false,"提交失败");
             }
 
             @Override
             protected void onPostExecute(Result result) {
                 super.onPostExecute(result);
+                Toast.makeText(EveryHouseOrderSendActivity.this,result.getMessage(),Toast.LENGTH_SHORT).show();
                 if(result.isSuccess()){
                     finish();
-                }else{
-                    Toast.makeText(EveryHouseOrderSendActivity.this,result.getMessage(),Toast.LENGTH_SHORT).show();
                 }
             }
         }.execute();

@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.crossy.app.everythinghouse.R;
+import com.crossy.app.everythinghouse.utils.CrossyApplication;
+import com.crossy.app.everythinghouse.utils.DataUtil;
 
 
 public class LaunchActivity extends Activity {
@@ -15,9 +17,17 @@ public class LaunchActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
+
+        initApp();
+
         Intent intent = new Intent(this,TabHostActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    private void initApp(){
+        CrossyApplication.init(getApplication());
+        DataUtil.init();
     }
 
 }
